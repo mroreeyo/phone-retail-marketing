@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+/* PRD 8.1 디자인 토큰. 골드는 면 색으로만 쓰고 글자색으로 쓰지 않는다. */
+@theme {
+  --color-gold: #f5b41e;
+  --color-brown: #3a2106;
+  --color-sub: #6b5333;
+  --color-cream: #fff1c7;
+  --color-paper: #fffbef;
+  --color-trust: #1e7a44;
+  --color-hot: #b8321a;
+  --font-display: var(--font-jua), "Noto Sans KR", sans-serif;
+  --font-sans: var(--font-noto), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+/* 본문 기준 18px. 큰 글씨 모드는 1.25배. 모든 크기를 rem으로 써서 함께 커진다. */
+html {
+  font-size: 112.5%;
+  -webkit-text-size-adjust: 100%;
+}
+html[data-large] {
+  font-size: 140.625%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-brown);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brown);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

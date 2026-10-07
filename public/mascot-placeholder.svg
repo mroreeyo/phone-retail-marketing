@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="마스코트 이미지 준비 중">
+  <!-- TODO(Q2): 황금 두꺼비 마스코트 원본으로 교체 -->
+  <rect x="4" y="4" width="232" height="232" rx="32" fill="#fff1c7" stroke="#3a2106" stroke-width="4" stroke-dasharray="12 10"/>
+  <text x="120" y="112" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#3a2106">마스코트</text>
+  <text x="120" y="142" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#6b5333">이미지 준비 중</text>
+</svg>
