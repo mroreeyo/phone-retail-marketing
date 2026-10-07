@@ -38,12 +38,11 @@ export function Hero({ store }: { store: StoreInfo }) {
   return (
     <section className="bg-gold">
       <div className="mx-auto grid max-w-xl grid-cols-[1fr_auto] items-end gap-3 px-4 pt-6 pb-6">
-        <div>
-          <h1 className="font-display text-[2.1rem] leading-[1.15] whitespace-pre-line">{HERO.title}</h1>
-          <p className="mt-3 font-medium">{HERO.sub}</p>
-        </div>
+        <h1 className="col-span-2 font-display text-[2.1rem] leading-[1.15] whitespace-pre-line">{HERO.title}</h1>
+        <p className="font-medium">{HERO.sub}</p>
         {/* TODO(Q2): 마스코트 원본으로 교체 */}
-        <img src="/mascot-placeholder.svg" alt="" width={112} height={112} className="size-28" />
+        {/* 큰 글씨 모드에서 글자 영역을 넓히도록 이미지는 px 고정 */}
+        <img src="/mascot-placeholder.svg" alt="" width={96} height={96} className="size-[96px]" />
         <a href={telHref(store)} data-track="call" className={`${ctaCall} col-span-2 mt-2`}>
           <PhoneIcon size="1.3em" weight="fill" aria-hidden />
           전화 상담

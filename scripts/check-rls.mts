@@ -35,7 +35,8 @@ for (const [t, pk, col] of tables) {
     check(`${t} UPDATE 거부`, blocked(upd), upd.error?.code);
   }
 
-  const del = await db.from(t).delete().eq(pk, t === "notices" ? "__none__" : -1).select();
+  const none = { notices: "__none__", phones: "00000000-0000-0000-0000-000000000000" }[t as string] ?? -1;
+  const del = await db.from(t).delete().eq(pk, none).select();
   check(`${t} DELETE 거부`, blocked(del), del.error?.code);
 }
 

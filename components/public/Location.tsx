@@ -12,6 +12,7 @@ export function Location({ store, hours }: { store: StoreInfo; hours: BusinessHo
     ["교통", store.transit],
     ["준비물", store.visit_items],
   ].filter(([, v]) => v);
+  if (!address && rows.length === 0 && notes.length === 0) return null;
 
   return (
     <section id="location" className="mx-auto max-w-xl px-4 py-8">
