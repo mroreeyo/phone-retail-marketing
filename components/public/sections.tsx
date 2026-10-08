@@ -40,9 +40,15 @@ export function Hero({ store }: { store: StoreInfo }) {
       <div className="mx-auto grid max-w-xl grid-cols-[1fr_auto] items-end gap-3 px-4 pt-6 pb-6">
         <h1 className="col-span-2 font-display text-[2.1rem] leading-[1.15] whitespace-pre-line">{HERO.title}</h1>
         <p className="font-medium">{HERO.sub}</p>
-        {/* TODO(Q2): 마스코트 원본으로 교체 */}
         {/* 큰 글씨 모드에서 글자 영역을 넓히도록 이미지는 px 고정 */}
-        <img src="/mascot-placeholder.svg" alt="" width={96} height={96} className="size-[96px]" />
+        <img
+          src="/mascot.webp"
+          alt="전화하는 황금 두꺼비 마스코트"
+          width={112}
+          height={112}
+          fetchPriority="high"
+          className="size-[112px]"
+        />
         <a href={telHref(store)} data-track="call" className={`${ctaCall} col-span-2 mt-2`}>
           <PhoneIcon size="1.3em" weight="fill" aria-hidden />
           전화 상담
