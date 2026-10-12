@@ -86,13 +86,13 @@ export function PhonesForm({ phones, priceMode }: { phones: Phone[]; priceMode: 
             ["public", "가격 공개형", "추천폰마다 입력한 가격을 보여 줍니다."],
           ] as const
         ).map(([value, label, desc]) => (
-          <label key={value} className="flex min-h-12 items-start gap-3 rounded-2xl border-2 border-brown/20 p-3 has-checked:border-brown has-checked:bg-cream">
+          <label key={value} className="flex min-h-12 items-start gap-3 rounded-2xl border-2 border-pond/20 p-3 has-checked:border-pond has-checked:bg-lily">
             <input
               type="radio"
               name="price_mode"
               checked={draft.priceMode === value}
               onChange={() => setDraft((d) => ({ ...d, priceMode: value }))}
-              className="mt-1 size-6 accent-brown"
+              className="mt-1 size-6 accent-pond"
             />
             <span>
               <span className="block font-bold">{label}</span>
@@ -106,7 +106,7 @@ export function PhonesForm({ phones, priceMode }: { phones: Phone[]; priceMode: 
         <h2 className="text-xl font-bold">추천폰 목록</h2>
         <p className={helpCls}>위에서부터 순서대로 고객 화면에 표시됩니다. 숨긴 추천폰은 고객에게 보이지 않습니다.</p>
         {uploadError && (
-          <p role="alert" className="font-bold text-hot">
+          <p role="alert" className="font-bold text-lotus">
             {uploadError}
           </p>
         )}
@@ -138,7 +138,7 @@ export function PhonesForm({ phones, priceMode }: { phones: Phone[]; priceMode: 
             </div>
 
             <div className="grid grid-cols-[6rem_1fr] gap-4">
-              <label className="grid cursor-pointer place-items-center overflow-hidden rounded-xl border-2 border-dashed border-brown/40 bg-paper aspect-[3/4]">
+              <label className="grid cursor-pointer place-items-center overflow-hidden rounded-xl border-2 border-dashed border-pond/40 bg-paper aspect-[3/4]">
                 {it.image_path ? (
                   <img src={phoneImageUrl(it.image_path)} alt={`${it.name} 사진`} className="size-full object-contain" />
                 ) : (
@@ -200,12 +200,12 @@ export function PhonesForm({ phones, priceMode }: { phones: Phone[]; priceMode: 
             )}
 
             <div className="flex flex-wrap gap-2">
-              <label className="flex min-h-12 items-center gap-2 rounded-2xl border-2 border-brown/20 px-3">
+              <label className="flex min-h-12 items-center gap-2 rounded-2xl border-2 border-pond/20 px-3">
                 <input
                   type="checkbox"
                   checked={it.hidden}
                   onChange={(e) => update(it._key, { hidden: e.target.checked })}
-                  className="size-6 accent-brown"
+                  className="size-6 accent-pond"
                 />
                 사이트에서 잠시 숨기기
               </label>
@@ -214,7 +214,7 @@ export function PhonesForm({ phones, priceMode }: { phones: Phone[]; priceMode: 
                   사진 빼기
                 </button>
               )}
-              <button type="button" onClick={() => remove(it)} className={`${smallBtn} ml-auto border-hot text-hot`}>
+              <button type="button" onClick={() => remove(it)} className={`${smallBtn} ml-auto border-lotus text-lotus`}>
                 <TrashIcon size="1.2em" weight="bold" aria-hidden />
                 삭제
               </button>
@@ -222,7 +222,7 @@ export function PhonesForm({ phones, priceMode }: { phones: Phone[]; priceMode: 
           </article>
         ))}
 
-        <button type="button" onClick={add} className={`${smallBtn} min-h-14 border-dashed bg-cream text-lg`}>
+        <button type="button" onClick={add} className={`${smallBtn} min-h-14 border-dashed bg-lily text-lg`}>
           <PlusIcon size="1.2em" weight="bold" aria-hidden />
           추천폰 추가
         </button>

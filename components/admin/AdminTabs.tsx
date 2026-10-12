@@ -20,7 +20,7 @@ export function AdminTabs() {
             key={t.href}
             href={t.href}
             aria-current={active ? "page" : undefined}
-            className="flex min-h-12 items-center justify-center border-b-4 border-transparent font-bold text-cream aria-[current=page]:border-gold aria-[current=page]:text-paper"
+            className="flex min-h-12 items-center justify-center border-b-4 border-transparent font-bold text-lily aria-[current=page]:border-gold aria-[current=page]:text-paper"
           >
             {t.label}
           </Link>

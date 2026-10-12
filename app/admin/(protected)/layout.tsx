@@ -9,7 +9,7 @@ export default async function ProtectedLayout({ children }: LayoutProps<"/admin"
 
   return (
     <>
-      <header className="bg-brown text-paper">
+      <header className="bg-pond text-paper">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-between gap-2 px-4">
           <span className="font-display text-xl">두꺼비통신 관리</span>
           <div className="flex items-center gap-1">
@@ -17,7 +17,7 @@ export default async function ProtectedLayout({ children }: LayoutProps<"/admin"
               사이트 보기
             </a>
             <form action={signOut}>
-              <button className="min-h-12 px-2 text-cream">로그아웃</button>
+              <button className="min-h-12 px-2 text-lily">로그아웃</button>
             </form>
           </div>
         </div>

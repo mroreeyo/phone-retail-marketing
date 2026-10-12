@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { formatTime, hourRows, updatedLabel } from "./format";
+import { formatTime, hourRows, hoursSummary, updatedLabel } from "./format";
 
 test("기준일은 가장 최근 수정 시각, 한국 시간", () => {
   expect(updatedLabel([])).toBeNull();
@@ -26,4 +26,18 @@ test("영업시간 표: 월요일부터, 비어 있는 요일 제외", () => {
     { day: "월", text: "오전 10시 ~ 오후 8시" },
     { day: "일", text: "휴무" },
   ]);
+});
+
+test("영업시간 요약: 같은 시간의 연속 요일을 묶는다", () => {
+  const open = (weekday: number) => ({ weekday, open_time: "10:00:00", close_time: "21:00:00", closed: false });
+  expect(hoursSummary([])).toBeNull();
+  expect(hoursSummary([0, 1, 2, 3, 4, 5, 6].map(open))).toBe("매일 오전 10시 ~ 오후 9시");
+  expect(
+    hoursSummary([...[1, 2, 3, 4, 5, 6].map(open), { weekday: 0, open_time: null, close_time: null, closed: true }]),
+  ).toBe("월~토 오전 10시 ~ 오후 9시 · 일 휴무");
+});
+
+test("영업시간 요약: 묶음이 많으면 한 줄로 쓰지 않는다", () => {
+  const h = (weekday: number, close: string) => ({ weekday, open_time: "10:00:00", close_time: close, closed: false });
+  expect(hoursSummary([h(1, "20:00:00"), h(2, "21:00:00"), h(3, "20:00:00")])).toBeNull();
 });

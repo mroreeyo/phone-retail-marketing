@@ -21,13 +21,13 @@ export default function LoginPage() {
           <input name="password" type="password" autoComplete="current-password" required className={inputCls} />
         </label>
         {error && (
-          <p role="alert" className="font-bold text-hot">
+          <p role="alert" className="font-bold text-lotus">
             {error}
           </p>
         )}
         <button
           disabled={pending}
-          className="min-h-14 rounded-2xl bg-brown text-lg font-bold text-paper active:scale-[0.98] disabled:opacity-60"
+          className="min-h-14 rounded-2xl bg-pond text-lg font-bold text-paper active:scale-[0.98] disabled:opacity-60"
         >
           {pending ? "로그인 중..." : "로그인"}
         </button>

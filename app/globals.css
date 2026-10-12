@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
-/* PRD 8.1 디자인 토큰. 골드는 면 색으로만 쓰고 글자색으로 쓰지 않는다. */
+/* 디자인 토큰 (2026-10-08 "연잎 연못" 팔레트, PRD 11절). 황금 두꺼비 + 두꺼비가 사는 연못.
+   골드는 면 색으로 쓴다. 글자색으로는 연못 초록(pond) 바탕 위에서만 쓴다(대비 7:1). */
 @theme {
   --color-gold: #f5b41e;
-  --color-brown: #3a2106;
-  --color-sub: #6b5333;
-  --color-cream: #fff1c7;
-  --color-paper: #fffbef;
+  --color-pond: #16382b;
+  --color-pad: #2f6b4a;
+  --color-sub: #4f6b5c;
+  --color-lily: #e3eedc;
+  --color-paper: #fbf8ee;
   --color-trust: #1e7a44;
-  --color-hot: #b8321a;
+  --color-lotus: #c2452d;
   --font-display: var(--font-jua), "Noto Sans KR", sans-serif;
   --font-sans: var(--font-noto), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
@@ -24,19 +26,55 @@ html[data-large] {
 
 body {
   background: var(--color-paper);
-  color: var(--color-brown);
+  color: var(--color-pond);
   font-family: var(--font-sans);
   line-height: 1.6;
   word-break: keep-all;
 }
 
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+/* 브라우저 기본 표면도 팔레트로 맞춘다 */
+::selection {
+  background: var(--color-gold);
+  color: var(--color-pond);
+}
+input,
+textarea {
+  caret-color: var(--color-pond);
+}
+
 :focus-visible {
-  outline: 3px solid var(--color-brown);
+  outline: 3px solid var(--color-pond);
   outline-offset: 2px;
 }
 
+/* 히어로 한 장면: 두꺼비가 연잎에 폴짝 앉고, 물결이 한 번 퍼지고, 말풍선이 톡 열린다.
+   처음부터 보이는 상태에서 transform만 움직여 LCP를 늦추지 않는다. */
+@keyframes toad-hop {
+  0% { transform: translateY(-18px) scale(0.96); }
+  55% { transform: translateY(0) scale(1.03, 0.97); }
+  100% { transform: none; }
+}
+@keyframes ripple {
+  0% { transform: scale(0.7); opacity: 0.7; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+@keyframes bubble-pop {
+  0% { transform: scale(0.92); }
+  100% { transform: none; }
+}
+.animate-toad-hop { animation: toad-hop 700ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-ripple { animation: ripple 1400ms cubic-bezier(0.16, 1, 0.3, 1) 350ms both; }
+.animate-bubble-pop { animation: bubble-pop 500ms cubic-bezier(0.16, 1, 0.3, 1) 450ms both; }
+
 @media (prefers-reduced-motion: reduce) {
   * {
+    animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
   }

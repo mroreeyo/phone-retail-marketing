@@ -11,7 +11,7 @@ export default async function PublicLayout({ children }: LayoutProps<"/">) {
   const { store } = await getSiteData();
   return (
     <>
-      <Header />
+      <Header store={store} />
       <main>{children}</main>
       <Footer store={store} />
       <ActionBar store={store} />

@@ -18,8 +18,14 @@ export function Tracker() {
   useEffect(() => {
     if (!GA) return;
     const onClick = (e: MouseEvent) => {
-      const el = (e.target as Element).closest<HTMLElement>("[data-track]");
-      if (el) window.gtag?.("event", el.dataset.track);
+      // 바깥 요소의 data-track도 함께 보낸다. 예: 연령별 항목(age_*) 안의 전화 버튼 → call, age_parents
+      for (
+        let el = (e.target as Element).closest<HTMLElement>("[data-track]");
+        el;
+        el = el.parentElement?.closest<HTMLElement>("[data-track]") ?? null
+      ) {
+        window.gtag?.("event", el.dataset.track);
+      }
     };
     document.addEventListener("click", onClick, { capture: true });
     return () => document.removeEventListener("click", onClick, { capture: true });

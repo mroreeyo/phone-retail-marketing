@@ -55,5 +55,5 @@ export function NaverMap({ lat, lng, title }: { lat: number; lng: number; title:
   }, [lat, lng, title]);
 
   if (failed) return null;
-  return <div ref={ref} className="h-56 w-full overflow-hidden rounded-2xl bg-cream" aria-label={`${title} 위치 지도`} role="img" />;
+  return <div ref={ref} className="h-56 w-full overflow-hidden rounded-2xl bg-lily" aria-label={`${title} 위치 지도`} role="img" />;
 }

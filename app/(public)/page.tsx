@@ -14,9 +14,9 @@ export default async function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness(data)) }} />
       <TopNotice notice={notice("top")} />
-      <Hero store={store} />
+      <Hero store={store} hours={hours} />
       <AgeChoices store={store} />
-      <CampaignBand notice={notice("campaign")} />
+      <CampaignBand notice={notice("campaign")} store={store} />
       <Phones phones={phones} priceMode={settings.price_mode} store={store} />
       <Promises />
       <Location store={store} hours={hours} />

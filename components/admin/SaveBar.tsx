@@ -46,12 +46,12 @@ export function SaveBar({ dirty, onSave }: { dirty: boolean; onSave: () => Promi
   }, [status]);
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-30 border-t border-brown/15 bg-paper pb-[env(safe-area-inset-bottom)]">
+    <div className="fixed inset-x-0 bottom-0 z-30 border-t border-pond/15 bg-paper pb-[env(safe-area-inset-bottom)]">
       <div className="mx-auto grid max-w-2xl gap-2 px-4 py-3">
         <div aria-live="polite">
           {status.kind === "ok" && <p className="font-bold text-trust">저장했어요. 사이트에 바로 반영돼요.</p>}
           {status.kind === "error" && (
-            <p className="font-bold text-hot" role="alert">
+            <p className="font-bold text-lotus" role="alert">
               {status.message}
             </p>
           )}
@@ -60,7 +60,7 @@ export function SaveBar({ dirty, onSave }: { dirty: boolean; onSave: () => Promi
           type="button"
           onClick={save}
           disabled={status.kind === "saving" || (!dirty && status.kind !== "error")}
-          className="min-h-14 rounded-2xl bg-brown text-lg font-bold text-paper active:scale-[0.98] disabled:opacity-50"
+          className="min-h-14 rounded-2xl bg-pond text-lg font-bold text-paper active:scale-[0.98] disabled:opacity-50"
         >
           {status.kind === "saving"
             ? "저장하는 중..."

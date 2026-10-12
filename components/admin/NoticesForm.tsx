@@ -55,7 +55,7 @@ export function NoticesForm({ notices }: { notices: Notice[] }) {
                 type="checkbox"
                 checked={n.hidden}
                 onChange={(e) => set(s.kind, { hidden: e.target.checked })}
-                className="size-6 accent-brown"
+                className="size-6 accent-pond"
               />
               사이트에서 잠시 숨기기 (내용은 남겨 둡니다)
             </label>

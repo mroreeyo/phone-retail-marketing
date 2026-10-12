@@ -27,7 +27,7 @@ export default function Privacy() {
           <h2>3. 문의</h2>
           <p className="mt-2">개인정보 관련 문의는 매장 대표 전화로 연락해 주세요.</p>
         </section>
-        <p className="rounded-2xl bg-cream p-4 font-bold">확인 필요: 이 문서는 출시 전에 확정될 초안입니다.</p>
+        <p className="rounded-2xl bg-lily p-4 font-bold">확인 필요: 이 문서는 출시 전에 확정될 초안입니다.</p>
       </div>
     </article>
   );
